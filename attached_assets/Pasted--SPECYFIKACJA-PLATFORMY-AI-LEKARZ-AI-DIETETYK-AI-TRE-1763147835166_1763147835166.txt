@@ -1,0 +1,834 @@
+===========================================
+SPECYFIKACJA PLATFORMY „AI LEKARZ + AI DIETETYK + AI TRENER + 24/7 MONITORING”
+===========================================
+0. CEL PRODUKTU
+
+Platforma webowa i mobilna (PWA), która:
+
+Działa jako cyfrowy lekarz rodzinny (POZ) wspierany AI.
+
+Zawiera moduł AI dietetyka klinicznego (jadłospisy, analiza badań).
+
+Zawiera moduł AI trenera (plany treningowe, aktywność, rehabilitacja).
+
+Integruje dane z urządzeń (zegarki, opaski, glukometry, ciśnieniomierze itd.).
+
+Działa jako wyrób medyczny (docelowo MDR klasa IIa).
+
+Może być licencjonowana i sprzedana np. Ministerstwu Zdrowia jako system wsparcia POZ.
+
+Ma moduł 24/7 monitoringu parametrów życiowych, który:
+
+na bieżąco analizuje dane z zegarka/sensora,
+
+wykrywa potencjalne ostre zdarzenia (np. zawał, groźne arytmie, skoki cukru, ciężkie zaostrzenia),
+
+uruchamia procedurę alarmową:
+→ powiadamia użytkownika,
+→ próbuje się z nim skontaktować,
+→ jeśli trzeba – przekazuje zgłoszenie do centrum teleopieki / operatora medycznego, który może wezwać karetkę.
+
+===========================================
+1. GŁÓWNE MODUŁY SYSTEMU
+===========================================
+
+MODUŁ MEDYCZNY – AI Lekarz POZ
+
+MODUŁ ŻYWIENIA – AI Dietetyk Kliniczny
+
+MODUŁ TRENINGOWY – AI Trener Personalny
+
+MODUŁ MONITORINGU 24/7 + ALARMY
+
+MODUŁ INTEGRACJI URZĄDZEŃ
+
+MODUŁ PACJENTA (frontend web/app)
+
+MODUŁ LEKARZA (panel kliniczny)
+
+MODUŁ DIETETYKA / TRENERA (panele specjalistów)
+
+MODUŁ EDM / DOKUMENTACJA MEDYCZNA
+
+MODUŁ E-RECEPT, E-ZLA, BADANIA
+
+MODUŁ PŁATNOŚCI I SUBSKRYPCJI
+
+MODUŁ ADMIN / AUDYT / LOGI
+
+WARSTWA AI (diagnostyczna + terapeutyczna)
+
+WARSTWA BEZPIECZEŃSTWA, RODO, MDR
+
+===========================================
+2. STRONA GŁÓWNA (PUBLICZNA)
+===========================================
+2.1. Hero
+
+Tytuł:
+„Cyfrowy lekarz, dietetyk i trener – z całodobowym monitoringiem zdrowia”
+
+Podtytuł:
+„Pierwsza w Polsce platforma POZ z AI, która analizuje Twoje dane zdrowotne 24/7 i w razie potrzeby uruchamia procedurę medyczną.”
+
+CTA:
+
+„Rozpocznij”
+
+„Zobacz jak to działa”
+
+Mockup: dashboard pacjenta + kafelek „monitoring aktywny”.
+
+2.2. Sekcja „Jak to działa – ogólnie”
+
+Zakładasz konto, wypełniasz profil zdrowotny.
+
+Podłączasz zegarek/opaskę/urządzenia (Apple Health, Google Fit itd.).
+
+AI analizuje dane medyczne, dietę i trening.
+
+Masz dostęp do:
+
+wizyt medycznych online,
+
+jadłospisów,
+
+planów treningowych,
+
+monitoringu 24/7 z procedurą alarmową.
+
+2.3. Sekcja „Monitoring 24/7”
+
+Krótkie bulletpointy:
+
+analiza tętna, rytmu, saturacji, glikemii, aktywności, snu,
+
+wykrywanie potencjalnych ostrych zdarzeń,
+
+procedura alarmowa: powiadomienia, próba kontaktu, przekazanie do centrum medycznego.
+
+Wyraźne zastrzeżenie:
+„System jest narzędziem wspomagającym i nie zastępuje numeru alarmowego 112; integracja z centrum medycznym odbywa się przez partnera telemedycznego.”
+
+2.4. Sekcje pozostałe
+
+„AI Lekarz” – jak działa moduł medyczny.
+
+„AI Dietetyk” – plany żywieniowe, analiza badań.
+
+„AI Trener” – trening, regeneracja, rehabilitacja.
+
+„Bezpieczeństwo i zgodność” – MDR, RODO, szyfrowanie.
+
+„Cennik” – plany miesięczne / roczne.
+
+„FAQ” – powtarzające się pytania.
+
+Stopka: regulamin, RODO, polityka cookies, kontakt.
+
+===========================================
+3. PANEL PACJENTA – STRUKTURA
+===========================================
+
+Główne sekcje:
+
+Dashboard
+
+Objawy / Wirtualna wizyta (AI Lekarz)
+
+Recepty
+
+Zwolnienia e-ZLA
+
+Badania i wyniki
+
+Dokumentacja medyczna (EDM)
+
+Dieta / AI Dietetyk
+
+Trening / AI Trener
+
+Monitoring 24/7 i alarmy
+
+Integracje urządzeń
+
+Postępy (statystyki zdrowia, dieta, trening)
+
+Subskrypcja i płatności
+
+Ustawienia, dane ICE, zgody
+
+===========================================
+4. DASHBOARD PACJENTA
+===========================================
+
+Elementy:
+
+Pasek powitalny:
+„Cześć, [Imię]. Monitoring serca: AKTYWNY. Dziś: [data].”
+
+Kafelek „Status zdrowia”:
+
+tętno spoczynkowe,
+
+ciśnienie (ostatni pomiar),
+
+saturacja,
+
+glukoza (jeśli jest glukometr),
+
+sen (ostatnia noc).
+
+Kafelek „Dziś”:
+
+zalecenia medyczne,
+
+plan posiłków,
+
+trening.
+
+Kafelek „Monitoring 24/7”:
+
+status: AKTYWNY / NIEAKTYWNY,
+
+ostatnie 24h: zdarzenia 0 / 1 / 2,
+
+przycisk: „Zobacz historię alarmów”.
+
+Kafelek „Ostatnie działania”:
+
+ostatnia recepta,
+
+ostatnia wizyta,
+
+ostatni raport AI.
+
+===========================================
+5. MODUŁ MEDYCZNY – AI LEKARZ POZ
+===========================================
+5.1. Wirtualna wizyta
+
+Flow:
+
+Użytkownik wybiera:
+
+„Nowe objawy”,
+
+„Kontrola choroby przewlekłej”,
+
+„Przedłużenie recepty”.
+
+AI zadaje pytania (strukturalny wywiad):
+
+symptomy (ból, duszność, gorączka itd.),
+
+lokalizacja, czas, nasilenie,
+
+leki,
+
+choroby przewlekłe,
+
+czynniki ryzyka.
+
+AI generuje:
+
+opis przypadku,
+
+diagnozę różnicową,
+
+sugerowane badania,
+
+wstępną propozycję terapii.
+
+Lekarz w panelu:
+
+widzi wszystko na 1 ekranie,
+
+poprawia/akceptuje,
+
+wystawia receptę / e-ZLA / skierowanie.
+
+AI generuje dla pacjenta:
+
+czytelne zalecenia,
+
+plan działań na najbliższe dni.
+
+5.2. Recepty
+
+lista aktualnych leków,
+
+historia e-recept,
+
+przycisk: „Poproś o przedłużenie”.
+
+5.3. Zwolnienia e-ZLA
+
+przycisk: „Poproś o zwolnienie”,
+
+AI robi wywiad,
+
+lekarz zatwierdza,
+
+system wysyła e-ZLA (integracja z PUE ZUS).
+
+===========================================
+6. DOKUMENTACJA MEDYCZNA (EDM)
+===========================================
+
+Historia wizyt,
+
+historia zaleceń,
+
+recepty, zwolnienia, skierowania,
+
+wyniki badań (załączniki, OCR + analiza),
+
+eksport dokumentacji (PDF, FHIR),
+
+udostępnianie dokumentacji (np. innemu lekarzowi).
+
+===========================================
+7. AI DIETETYK KLINICZNY
+===========================================
+7.1. Dane wejściowe
+
+płeć, wiek, masa, wzrost, BMI,
+
+choroby (cukrzyca, nadciśnienie, tarczyca, IBS itd.),
+
+alergie i nietolerancje,
+
+preferencje diety (vegan, wege, keto, brak),
+
+budżet na jedzenie,
+
+dane z badań (np. lipidy, insulina, ferrytyna),
+
+dane z urządzeń (waga, aktywność).
+
+7.2. Dane wyjściowe
+
+plan żywieniowy (7/14/30 dni),
+
+posiłki z dokładnym gramem i makro,
+
+listy zakupów,
+
+alternatywy dla produktów (zamienniki),
+
+analiza niedoborów i sugestie badań,
+
+komentarz AI Dietetyka (tekst po ludzku).
+
+7.3. UI pod dietę
+
+Zakładka „Mój plan żywieniowy”:
+
+kalendarz z dniami,
+
+posiłki na dany dzień,
+
+przycisk „Zamień posiłek”,
+
+opcja „Zgłoś, że nie zjadłem zgodnie z planem”.
+
+===========================================
+8. AI TRENER PERSONALNY
+===========================================
+8.1. Dane wejściowe
+
+poziom zaawansowania,
+
+cel (redukcja, masa, wydolność, rehabilitacja),
+
+dostęp do sprzętu (dom, siłownia, brak),
+
+kontuzje i ograniczenia,
+
+ilość dni treningowych,
+
+dane z zegarka (VO2max, tętno, HRV, aktywność).
+
+8.2. Dane wyjściowe
+
+plan treningowy (tygodnie → dni → ćwiczenia),
+
+objętość, intensywność, przerwy,
+
+progi tętna,
+
+trening cardio + siłowy,
+
+zalecenia regeneracyjne.
+
+8.3. UI „Mój plan treningowy”
+
+kalendarz treningów,
+
+szczegóły każdego treningu,
+
+„Oznacz jako wykonany”,
+
+„Było za łatwo/ok/za trudno” → adaptacja AI.
+
+===========================================
+9. MODUŁ MONITORINGU 24/7 + ALARMY
+===========================================
+
+To jest nowy, krytyczny moduł.
+
+9.1. Cel
+
+ciągłe monitorowanie danych z urządzeń (w tle),
+
+wykrywanie potencjalnie niebezpiecznych zdarzeń,
+
+uruchamianie 3-stopniowej procedury alarmowej,
+
+przekazanie informacji do centrum medycznego (partner) w razie poważnych zdarzeń.
+
+9.2. Dane monitorowane
+
+W zależności od urządzenia:
+
+tętno chwilowe,
+
+tętno spoczynkowe,
+
+rytm serca (arytmie, AFib – jeśli zegarek to obsługuje),
+
+HRV,
+
+saturacja (SpO2),
+
+ciśnienie (jeśli ciśnieniomierz podłączony),
+
+poziom glukozy (glukometry ciągłe),
+
+aktywność (ruch / bezruch),
+
+upadek (czujnik upadku w zegarku),
+
+sen (bezdechy, tętno nocne),
+
+lokalizacja GPS (z telefonu, za zgodą).
+
+9.3. Architektura monitoringu
+
+warstwa edge – urządzenia zbierają dane (zegarek, telefon),
+
+warstwa transportu – dane przesyłane co X sekund/minut:
+
+push z aplikacji,
+
+WebSocket/HTTP,
+
+warstwa analizy – mikroserwis monitoring-service:
+
+reguły proste (twarde progi),
+
+reguły trendów (nagły wzrost/spadek),
+
+modele ML/anomalii (opcjonalnie).
+
+9.4. Poziomy alarmów
+POZIOM 0 – INFO
+
+lekkie odchylenia,
+
+tylko zapis do logów,
+
+ewentualnie powiadomienie w aplikacji:
+„Twoje tętno było przez chwilę podwyższone”.
+
+POZIOM 1 – ALERT
+
+Warunki przykładowe (do doprecyzowania klinicznie z lekarzem):
+
+spoczynkowe tętno > 130 przez dłuższy czas,
+
+saturacja < 90% przez X minut,
+
+glukoza bardzo wysoka/niska,
+
+wykryty upadek + brak ruchu przez kilka minut.
+
+Działania:
+
+Wysłanie powiadomienia push / SMS do pacjenta:
+„Zauważyliśmy niepokojące parametry. Czy wszystko w porządku?”
+Przyciski:
+
+„Tak, wszystko ok” (spada do logów),
+
+„Nie, potrzebuję pomocy” (eskalacja).
+
+Jeżeli pacjent w ogóle nie reaguje w określonym czasie (np. 2–3 minuty), monitoring przechodzi w POZIOM 2.
+
+POZIOM 2 – EMERGENCY / KRYTYCZNY
+
+Warunki:
+
+bardzo wysokie ryzyko stanu zagrożenia życia wg reguł + brak reakcji pacjenta,
+
+upadek + brak ruchu + bardzo niekorzystne parametry (np. tętno bardzo niskie/wysokie, saturacja niska),
+
+ciągła bardzo wysoka glukoza z objawami.
+
+Działania:
+
+Próba kontaktu:
+
+automatyczne połączenie telefoniczne IVR do pacjenta (bot)
+lub
+
+przekazanie zdarzenia do centrum teleopieki (operator medyczny).
+
+Jeśli pacjent potwierdzi głosem / przyciskiem, że potrzebuje pomocy:
+
+system przekazuje:
+
+dane pacjenta,
+
+aktualną lokalizację,
+
+parametry życiowe z ostatnich X minut,
+
+choroby, leki, alergie,
+
+operator medyczny podejmuje decyzję o wysłaniu karetki (po stronie partnera).
+
+Jeśli pacjent nie odpowiada:
+
+reguły ustalone z partnerem medycznym (przeważnie wciąż możliwość wysłania interwencji zależnej od ryzyka).
+
+WAŻNE: W specyfikacji projektowej zakładamy:
+system integruje się z zewnętrznym centrum telemedycznym poprzez API, które ma prawo kontaktować się z systemem ratunkowym (112 / lokalne pogotowie). Sam system nie dzwoni bezpośrednio na 112, tylko przez partnera (to ważne z punktu widzenia przepisów).
+
+9.5. Dane dla operatora medycznego
+
+Przy zdarzeniu krytycznym API wysyła:
+
+ID pacjenta,
+
+imię, nazwisko, PESEL (lub inny identyfikator),
+
+adres domowy (jeśli brak GPS),
+
+ostatnie znane współrzędne GPS (telefon),
+
+najważniejsze parametry w czasie (tętno, SpO2, glukoza, ciśnienie),
+
+choroby przewlekłe,
+
+leki,
+
+alergie,
+
+dane kontaktowe (telefon pacjenta, ICE kontaktów).
+
+9.6. UI „Monitoring i alarmy” (po stronie pacjenta)
+
+Sekcja /app/monitoring:
+
+przełącznik: Monitoring serca: ON/OFF (z ostrzeżeniem przy OFF),
+
+ostatnie zdarzenia:
+
+wykresy epizodów,
+
+oznaczenie czy były alarmy,
+
+konfiguracja:
+
+dane ICE (osoby do kontaktu),
+
+zgody:
+
+na monitoring,
+
+na przekazywanie danych do centrum medycznego,
+
+na użycie lokalizacji w sytuacjach alarmowych.
+
+===========================================
+10. MODUŁ INTEGRACJI URZĄDZEŃ
+===========================================
+
+Integracje (docelowe):
+
+Apple Health
+
+Google Fit
+
+Samsung Health
+
+Garmin
+
+Fitbit
+
+Polar
+
+Withings
+
+Omron (ciśnienie)
+
+Libre / CGM (glukoza)
+
+inne API partnerów.
+
+Każda integracja:
+
+ma connect(), disconnect(), sync(),
+
+może działać w trybie:
+
+okresowej synchronizacji (np. co 5–15 minut),
+
+zbliżonego „real time” jeśli urządzenie/OS na to pozwala (np. background tasks).
+
+===========================================
+11. PANEL LEKARZA
+===========================================
+
+Sekcje:
+
+Kolejka pacjentów (wizyty, zapytania).
+
+Alarmy krytyczne:
+
+lista ostatnich zdarzeń poziomu 2,
+
+możliwość podglądu danych,
+
+notatka medyczna po zdarzeniu.
+
+Karta pacjenta:
+
+wszystkie dane medyczne,
+
+wizyty,
+
+recepty, zwolnienia, badania,
+
+wykresy parametrów z urządzeń.
+
+Przegląd planów (dieta, trening) – z możliwością komentowania.
+
+Panel raportów – wykresy populacyjne (od strony lekarza).
+
+===========================================
+12. PANLE DIETETYKA I TRENERA
+===========================================
+Panel dietetyka:
+
+lista pacjentów,
+
+ich dane kliniczne związane z żywieniem,
+
+możliwość tworzenia szablonów diet,
+
+akceptacja lub modyfikacja planów AI dla bardziej skomplikowanych przypadków.
+
+Panel trenera:
+
+lista pacjentów,
+
+dane treningowe, kontuzje, postęp,
+
+szablony planów,
+
+specjalne protokoły (rehabilitacyjne, wydolnościowe).
+
+===========================================
+13. PANEL ADMIN / SYSTEM
+===========================================
+
+zarządzanie użytkownikami,
+
+zarządzanie lekarzami/specjalistami,
+
+przypisywanie uprawnień,
+
+logi medyczne (kto co zatwierdził),
+
+logi systemowe,
+
+konfiguracja integracji z centrum teleopieki,
+
+raporty.
+
+===========================================
+14. MODUŁ SUBSKRYPCJI I PŁATNOŚCI
+===========================================
+
+plany:
+
+STANDARD: AI Dietetyk + AI Trener + lekarz asynchroniczny,
+
+PREMIUM: + AI Lekarz w trybie priorytetowym,
+
+MONITORING 24/7: dodatkowa opłata (najwyższy tier).
+
+integracja:
+
+Stripe / PayU / Przelewy24,
+
+zarządzanie subskrypcjami,
+
+statusy:
+
+trial, active, past_due, cancelled.
+
+===========================================
+15. ARCHITEKTURA AI
+===========================================
+15.1. Model diagnostyczny
+
+analiza objawów,
+
+diagnoza różnicowa,
+
+czerwone flagi kliniczne.
+
+15.2. Model terapeutyczny
+
+leczenie,
+
+dawkowanie (zabezpieczone regułami),
+
+plan diety,
+
+plan treningowy.
+
+15.3. Model monitoringu/anomalii
+
+analiza strumienia danych z urządzeń,
+
+wykrywanie nieprawidłowości,
+
+klasyfikacja alarmów (0/1/2).
+
+Wszystko w trybie „AI as assistant”:
+ostateczne decyzje medyczne → lekarz.
+
+===========================================
+16. ARCHITEKTURA TECHNICZNA (BACKEND)
+===========================================
+
+Propozycja mikroserwisów:
+
+auth-service – logowanie, role, JWT.
+
+patient-service – dane pacjentów, profil.
+
+health-data-service – pomiary, urządzenia.
+
+symptoms-service – zgłaszanie objawów.
+
+ai-diagnostic-service – wywiady, diagnoza różnicowa.
+
+ai-treatment-service – zalecenia, strategie leczenia.
+
+diet-service – plany diet.
+
+training-service – plany treningowe.
+
+monitoring-service – streaming, analiza, alarmy.
+
+telecare-integration-service – połączenie z centrum telemedycznym.
+
+prescription-service – e-recepty.
+
+ezla-service – e-ZLA.
+
+edm-service – dokumentacja medyczna.
+
+payments-service – subskrypcje i płatności.
+
+admin-service – zarządzanie systemem.
+
+Baza danych:
+
+Postgres (dane strukturalne)
+
+S3/MinIO (pliki)
+
+Redis (kolejki, cache, sesje)
+
+===========================================
+17. ARCHITEKTURA TECHNICZNA (FRONTEND)
+===========================================
+
+SPA / PWA:
+
+React + Next.js
+
+Tailwind
+
+React Query / TanStack Query
+
+Recharts dla wykresów
+
+React Hook Form + Zod dla formularzy medycznych
+
+Widoki:
+
+publiczne: /, jak-to-dziala, cennik, faq, regulamin, polityka-prywatnosci.
+
+pacjent: /app/dashboard, /app/objawy, /app/recepty, /app/dieta, /app/trening, /app/monitoring, /app/integracje, /app/postepy, /app/subskrypcja, /app/ustawienia.
+
+lekarz: /doctor/dashboard, /doctor/patient/[id], /doctor/alerts, /doctor/reports.
+
+admin: /admin/*.
+
+===========================================
+18. BEZPIECZEŃSTWO I ZGODNOŚĆ
+===========================================
+
+RODO – dane szczególnej kategorii (medyczne):
+
+szyfrowanie w spoczynku i w tranzycie,
+
+logowanie dostępu,
+
+minimalizacja danych.
+
+MDR:
+
+system klasy IIa (docelowo),
+
+dokumentacja ryzyka,
+
+raportowanie incydentów,
+
+lekarz jako „person responsible for regulatory compliance”.
+
+Wszystkie funkcje medyczne (recepty, zwolnienia, alarmy) mają:
+
+czytelne logi,
+
+identyfikację lekarza,
+
+wersjonowanie decyzji.
+
+===========================================
+19. CEL KOŃCOWY PRODUKTU
+===========================================
+
+Platforma, którą można certyfikować jako wyrób medyczny.
+
+System wspomagający pracę lekarzy rodzinnych (POZ) + dietetyków + trenerów.
+
+Monitoring 24/7, który:
+
+realnie podnosi bezpieczeństwo pacjentów,
+
+może być sprzedawany w pakietach premium,
+
+jest potencjalnie atrakcyjny dla MZ / NFZ jako element opieki zdalnej.
+
+Unikalność w Polsce:
+zintegrowany AI lekarz + dietetyk + trener + monitoring + recepty + EDM
+w jednym spójnym, licencjonowalnym systemie.
